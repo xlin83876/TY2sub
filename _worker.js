@@ -47,9 +47,7 @@ let alpn = 'h3';
 let 网络备案 = `提供维护: <a href='https://t.me/jiliankeji'>极链科技</a>,想你所想: <a href='https://t.me/jilianso'>资源搜索</a>`; //写你自己的维护者广告
 let 额外ID = '0';
 let 加密方式 = 'auto';
-let 网站图标 = '<link rel="icon" sizes="32x32" href="https://tp.jzhou.dpdns.org/file/头像/1745394585901_image.png">';
-let 网站头像 = '<div class="logo-wrapper"><div class="logo-border"></div><img src="https://tp.jzhou.dpdns.org/file/头像/1745394830140_image.png" alt="Logo"></div>';
-let 网站背景 = 'background-image: url("https://img.hgd.f5.si/random?type=img&dir=T2");';
+let 网站图标, 网站头像, 网站背景;
 async function 整理优选列表(api) {
 	if (!api || api.length === 0) return [];
 
@@ -555,7 +553,7 @@ export default {
 		};
 
         // 使用变量来设置主题
-        const COLOR = Number(env.COLOR) || 3; // 选择自然绿色主题
+        const COLOR = Number(env.COLOR) || 1; // 选择自然绿色主题
         const theme = themes[COLOR];
 
 		if (env.TOKEN) 快速订阅访问入口 = await 整理(env.TOKEN);
@@ -568,12 +566,14 @@ export default {
 		if (env.CMPROXYIPS) 匹配PROXYIP = await 整理(env.CMPROXYIPS);;
 		if (env.CFPORTS) httpsPorts = await 整理(env.CFPORTS);
 		EndPS = env.PS || EndPS;
-		网站图标 = env.ICO ? `<link rel="icon" sizes="32x32" href="${env.ICO}">` : '';
-		网站头像 = env.PNG ? `<div class="logo-wrapper"><div class="logo-border"></div><img src="${env.PNG}" alt="Logo"></div>` : '';
+		网站图标 = env.ICO ? `<link rel="icon" sizes="32x32" href="${env.ICO}">` : '<link rel="icon" sizes="32x32" href="https://api.jzhou.dedyn.io/极.png?token=JLiptq">';
+		网站头像 = env.PNG ? `<div class="logo-wrapper"><div class="logo-border"></div><img src="${env.PNG}" alt="Logo"></div>` : '<div class="logo-wrapper"><div class="logo-border"></div><img src="https://api.jzhou.dedyn.io/极.png?token=JLiptq" alt="Logo"></div>';
 		if (env.IMG) {
-			const imgs = await 整理(env.IMG);
-			网站背景 = `background-image: url('${imgs[Math.floor(Math.random() * imgs.length)]}');`;
-		} else 网站背景 = '';
+            const imgs = await 整理(env.IMG);
+            网站背景 = `background-image: url('${imgs[Math.floor(Math.random() * imgs.length)]}');`;
+        } else {
+            网站背景 = 'background-image: url("https://img.hgd.f5.si/random?type=img&dir=T2");';
+        }
 		网络备案 = env.BEIAN || env.BY || 网络备案;
 		const userAgentHeader = request.headers.get('User-Agent');
 		const userAgent = userAgentHeader ? userAgentHeader.toLowerCase() : "null";
@@ -1569,4 +1569,5 @@ async function subHtml(request, theme) {
 		},
 	});
 }
+
 
