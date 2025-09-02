@@ -50,7 +50,6 @@ let 加密方式 = 'auto';
 let 网站图标 = '<link rel="icon" sizes="32x32" href="https://tp.jzhou.dpdns.org/file/头像/1745394585901_image.png">';
 let 网站头像 = '<div class="logo-wrapper"><div class="logo-border"></div><img src="https://tp.jzhou.dpdns.org/file/头像/1745394830140_image.png" alt="Logo"></div>';
 let 网站背景 = 'background-image: url("https://img.hgd.f5.si/random?type=img&dir=T2");';
-let COLOR = 1;
 async function 整理优选列表(api) {
 	if (!api || api.length === 0) return [];
 
@@ -1570,3 +1569,4 @@ async function subHtml(request, theme) {
 		},
 	});
 }
+
