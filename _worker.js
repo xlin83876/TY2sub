@@ -28,7 +28,7 @@ let BotToken = '';
 let ChatID = '';
 let 临时中转域名 = [];
 let 临时中转域名接口 = '';
-let EndPS = '';
+let EndPS = '【极链订阅生成器】';
 let 协议类型 = atob(`\u0056\u006b\u0078\u0046\u0055\u0031\u004d\u003d`);
 let FileName = '极链订阅生成器';
 let SUBUpdateTime = 3;
@@ -565,7 +565,7 @@ export default {
 		socks5DataURL = env.SOCKS5DATA || socks5DataURL;
 		if (env.CMPROXYIPS) 匹配PROXYIP = await 整理(env.CMPROXYIPS);;
 		if (env.CFPORTS) httpsPorts = await 整理(env.CFPORTS);
-		EndPS = env.PS || "【请勿测速】"; // <-- 在这里写下你的备用后缀
+		EndPS = env.PS || EndPS;
 		网站图标 = env.ICO ? `<link rel="icon" sizes="32x32" href="${env.ICO}">` : '<link rel="icon" sizes="32x32" href="https://api.jzhou.dedyn.io/极.png?token=JLiptq">';
 		网站头像 = env.PNG ? `<div class="logo-wrapper"><div class="logo-border"></div><img src="${env.PNG}" alt="Logo"></div>` : '<div class="logo-wrapper"><div class="logo-border"></div><img src="https://api.jzhou.dedyn.io/极.png?token=JLiptq" alt="Logo"></div>';
 		if (env.IMG) {
@@ -1569,6 +1569,7 @@ async function subHtml(request, theme) {
 		},
 	});
 }
+
 
 
 
